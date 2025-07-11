@@ -15,6 +15,7 @@ void AMGGenerateMaze::BeginPlay()
 		for (int j = 0; j < MazeSize; ++j)
 		{
 			AMGMazeCell* Cell = GetWorld()->SpawnActor<AMGMazeCell>(AMGMazeCell::StaticClass(), FVector(300.f * i, 300.f * j, 0.f) , SpawnRotation, SpawnParams);
+			//(0,~),(~,0) 좌표의 외부 벽 생성
 			if (i == 0)
 			{
 				Cell->SetSouthWallVisible();
@@ -71,7 +72,8 @@ void AMGGenerateMaze::SetupMaze()
 			int32 RandomIndex = FMath::RandRange(0, NearPos.Num() - 1);
 			FVector2D NextPos = NearPos[RandomIndex];
 			AMGMazeCell* NextCell = GetCellByPos(NextPos);
-
+			
+			//움직인 방향 계산해서 해당 방향 벽 제거
 			FVector2D DiffPos = NextPos - CurrentPos;
 			if (DiffPos == FVector2D(1, 0))
 			{
