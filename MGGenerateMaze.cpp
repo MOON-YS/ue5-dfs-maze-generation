@@ -48,7 +48,7 @@ void AMGGenerateMaze::SetupMaze()
 		CurrentCell->SetVisited();
 		TArray<FVector2D> NearPos = CurrentCell->GetNearPos();
 		
-		//R
+		//방문한 좌표는 제외
 		NearPos.RemoveAll([this](const FVector2D& Pos) {
 			return this->GetCellByPos(Pos)->GetVisited();
 			});
@@ -110,7 +110,7 @@ void AMGGenerateMaze::SetupMazeForVisualize()
 		
 		TArray<FVector2D> NearPos = CurrentCell->GetNearPos();
 
-		//R
+		//방문한 좌표는 제외
 		NearPos.RemoveAll([this](const FVector2D& Pos) {
 			return this->GetCellByPos(Pos)->GetVisited();
 			});
