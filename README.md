@@ -1,1 +1,1 @@
-[[https://choryang-d.tistory.com/](https://choryang-d.tistory.com/)](https://choryang-d.tistory.com/22)
+https://choryang-d.tistory.com/22
